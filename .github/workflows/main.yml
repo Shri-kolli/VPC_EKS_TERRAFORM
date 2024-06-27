@@ -61,7 +61,7 @@ jobs:
       - name: Terraform apply
         working-directory: ./S3&dynamoDB
         run: |
-          terraform apply         
+          terraform apply -auto-approve      
                     
 # come out and execute command
       - name: Terraform init and validate
@@ -83,4 +83,4 @@ jobs:
 
       - name: Terraform apply
         run: |
-          terraform apply
+          terraform apply -auto-approve
