@@ -21,6 +21,9 @@ jobs:
         uses: actions/checkout@v3.0.0
         with:
           fetch-depth: 0
+          repository: Shri-kolli/VPC_EKS_TERRAFORM  
+          ref: main
+          token: ${{ secrets.GITHUB_TOKEN }}
 
       - id: "auth"
         name: "Authenticate to AWS Cloud"
