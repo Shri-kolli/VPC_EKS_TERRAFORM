@@ -18,7 +18,7 @@ jobs:
     runs-on: ubuntu-latest        #self-hosted
     steps:
       - name: Checkout Git Repository
-        uses: actions/checkout@v3.0.0
+        uses: actions/checkout@v4
         with:
           fetch-depth: 0
           repository: Shri-kolli/VPC_EKS_TERRAFORM  
@@ -27,11 +27,11 @@ jobs:
 
       - id: "auth"
         name: "Authenticate to AWS Cloud"
-        uses: "AWS-github-actions/auth@v1"
+        uses: "aws-actions/configure-aws-credentials@v1"
         with:
-          credentials_json: "${{ secrets.AWS_CREDENTIALS }}"
-          create_credentials_file: true
-          export_environment_variables: true
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: us-east-1
 
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v1
